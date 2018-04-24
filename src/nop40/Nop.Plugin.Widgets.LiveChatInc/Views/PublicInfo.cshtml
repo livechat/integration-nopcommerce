@@ -1,6 +1,5 @@
 ﻿@model Nop.Plugin.Widgets.LiveChatInc.Models.PublicInfoModel
 @{
-    Layout = "";
     var jsonConfig = @"{" +
 "license:'" + Model.License + "'" +
 ",hideOnMobile:" + (Model.HideOnMobile ? "true" : "false") +
@@ -19,7 +18,6 @@
         (function () {
             var isMobile = false,
                 jsonConfig = @Html.Raw(jsonConfig);
-
 
             if (jsonConfig.hideOnMobile) {
                 var mobilecheck = function () {
@@ -61,7 +59,7 @@
             if (jsonConfig.cartUpdateInterval > 0) {
                 window.setInterval(function () {
                     var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '@Url.RouteUrl("Plugin.Widgets.LiveChatInc.GetCustomerCart")');
+                    xhr.open('POST', '@Url.Action("GetCustomerCart","WidgetsLiveChatInc")');
                     xhr.send(null);
 
                     xhr.onreadystatechange = function () {

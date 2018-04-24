@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Widgets",
+  "FriendlyName": "Live Chat Inc plugin",
+  "SystemName": "Widgets.LiveChatInc",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.00" ],
+  "Author": "Live Chat Inc",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widgets.LiveChatInc.dll",
+  "Description": "This plugin integrates with LiveChat."
+}
