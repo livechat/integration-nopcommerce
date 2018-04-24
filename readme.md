@@ -1,6 +1,6 @@
 # ![LiveChatInc](https://cdnx.livechatinc.com/website/media/img/logo_small.png?v=3) plugin for nopCommerce 3.70 - 4.00
 
-This plugin integrates [LiveChat](https://www.livechatinc.com/) into you nopCommerce store.
+This plugin integrates [LiveChat](https://www.livechatinc.com/) into nopCommerce store.
 
 ### Folder structure:
 * src  - sources.
