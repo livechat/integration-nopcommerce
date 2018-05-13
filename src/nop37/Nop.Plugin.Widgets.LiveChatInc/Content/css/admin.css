@@ -139,7 +139,7 @@
     padding-left: 0px;
 }
 
-input[type=submit][name=delete_settings]{
+input[type=submit][name=delete_settings] {
     background-color: white;
     text-decoration: underline;
     border: none;
@@ -193,23 +193,23 @@ iframe#login-with-livechat,
     margin-bottom: 2px;
 }
 
-.livechat_table{
-    margin-top:50px;
+.livechat_table {
+    margin-top: 50px;
 }
 
 .livechat_logo2 {
-    content: url(../img/livechat-integrates-with-nopcommerce.png);
+    display:block;
 }
 
+
 .livechat_screenshot {
-    content: url(../img/livechat-app.png);
     height: auto;
     width: 100%;
     max-width: 800px;
+    display:block;    
 }
 
-.fadein,
-.fadeout {
+.fadein, .fadeout {
     opacity: 0;
     -moz-transition: opacity 0.4s ease-in-out;
     -o-transition: opacity 0.4s ease-in-out;
