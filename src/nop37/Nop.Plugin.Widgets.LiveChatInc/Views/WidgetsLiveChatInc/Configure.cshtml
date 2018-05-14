@@ -37,8 +37,6 @@
 	}
 
     $(document).ready(function () {
-		$('#login_email').text('@Model.License.Login');
-
 		var login_with_livechat = document.getElementById('login-with-livechat');
 
 		var sendMessage = function(msg) {
@@ -153,7 +151,7 @@
                         <div class="progress-button hidden">
                             @T("Plugins.Widgets.LiveChatInc.Saving")
                         </div>
-                        <div>
+                        <div  style="width: 204px;margin: auto; overflow: visible;">
                             <iframe id="login-with-livechat" src="https://addons.livechatinc.com/sign-in-with-livechat"> </iframe>
                         </div>
                     </div>
@@ -165,7 +163,7 @@
             </div>
             <div style="text-align: center;">
                 <img class="livechat_screenshot" src="@Url.Content("~/Plugins/Widgets.LiveChatInc/Content/img/livechat-app.png")" alt="livechat app" />
-                <p style="font-size:16px;">@T("Plugins.Widgets.LiveChatInc.CheckOutApps") <a href="https://www.livechatinc.com/applications/" target="_blank">@T("Plugins.Widgets.LiveChatInc.DesktopOrMobile")</a></p>
+                <p style="font-size:16px;">@T("Plugins.Widgets.LiveChatInc.CheckOutApps") <a href="https://www.livechatinc.com/applications/?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">@T("Plugins.Widgets.LiveChatInc.DesktopOrMobile")</a></p>
             </div>
         </div>
     </div>
@@ -182,7 +180,7 @@
                     <tr>
                         <td colspan="2">
                             <div style="font-size: medium; line-height: 1.6em;">
-                                <span style="text-align: right; font-size: medium; margin-top: 5px;">@T("Plugins.Widgets.LiveChatInc.CurrentlyUsedAccount")</span><span style="font-size: medium;"><strong><span id="login_email"></span></strong> @T("Plugins.Widgets.LiveChatInc.LiveChatAccount")</span>
+                                <span style="text-align: right; font-size: medium; margin-top: 5px;">@T("Plugins.Widgets.LiveChatInc.CurrentlyUsedAccount") </span><span style="font-size: medium;"><strong><span id="login_email">@Model.License.Login</span></strong> @T("Plugins.Widgets.LiveChatInc.LiveChatAccount")</span>
                             </div>
                         </td>
                     </tr>
@@ -246,9 +244,9 @@
                     <div style="text-align: center;">
                         <img class="livechat_screenshot" src="@Url.Content("~/Plugins/Widgets.LiveChatInc/Content/img/livechat-app.png")" alt="livechat app" />
                         <p style="font-size:14px;">
-                            <a href="https://my.livechatinc.com?utm_source=nopcommerce.com&amp;utm_medium=integration&amp;utm_campaign=nopcommerce_integration" target="_blank">
+                            <a href="https://my.livechatinc.com?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">
                                 @T("Plugins.Widgets.LiveChatInc.UseOurWebApp")
-                            </a> @T("Plugins.Widgets.LiveChatInc.OrCheckOutApps") <a href="https://www.livechatinc.com/applications/" target="_blank">@T("Plugins.Widgets.LiveChatInc.DesktopOrMobile")</a>
+                            </a> @T("Plugins.Widgets.LiveChatInc.OrCheckOutApps") <a href="https://www.livechatinc.com/applications/?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">@T("Plugins.Widgets.LiveChatInc.DesktopOrMobile")</a>
                         </p>
                     </div>
                 </div>

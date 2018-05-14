@@ -150,6 +150,7 @@ input[type=submit][name=delete_settings] {
     outline-style: none;
     margin-left: 0px;
     padding-left: 0px;
+    font-size: 11.9px;
 }
 
 div#cart_radios .cart_switch {
@@ -167,13 +168,12 @@ iframe#login-with-livechat,
 }
 
 .progress-button {
-    margin-left: 5px;
-    width: 214px;
+    width: 204px;
     height: 43px;
     border: none;
     color: rgb(90, 105, 118, 0.5);
     opacity: 0.5;
-    display: inline-block;
+    display: block;
     font-size: 16px;
     line-height: 1.5;
     font-family: "Lato", sans-serif;
@@ -183,6 +183,10 @@ iframe#login-with-livechat,
     border-radius: 3px;
     padding: 8px 24px 9px;
     text-align: center;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .or-delimiter {
@@ -194,15 +198,15 @@ iframe#login-with-livechat,
 }
 
 .livechat_logo2 {
-    content: url(../img/livechat-integrates-with-nopcommerce.png);
-    width: 100%;
+    display:block;
+	width:100%;
 }
 
 .livechat_screenshot {
-    content: url(../img/livechat-app.png);
     height: auto;
     width: 100%;
     max-width: 800px;
+    display:block;    
 }
 
 .fadein,

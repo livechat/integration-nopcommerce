@@ -73,9 +73,9 @@
                                 var custom_vars = [];
                                 try {
                                     data.products.forEach(function (item) {
-                                        custom_vars.push({ name: item.ProductName + "(" + item.Link + ")", value: item.Quantity });
+                                        custom_vars.push({ name: item.ProductName + "(" + item.Quantity + ")", value: item.Link });
                                     });
-                                    custom_vars.push({ name: 'Cart Subtotal', value: data.subtotal });
+                                    custom_vars.push({ name: 'Cart total', value: data.subtotal });
                                 } catch (err) { }
 
                                 if (custom_vars) window.LC_API.set_custom_variables(custom_vars);
