@@ -73,9 +73,9 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
                 HideOnMobile = settings.HideOnMobile,
                 TrackingCartOptions = new List<SelectListItem>
                 {
-                    new SelectListItem{ Text="Don't track", Value="0"},
-                    new SelectListItem{ Text="10s", Value="10000"},
-                    new SelectListItem{ Text="30s", Value="30000"},
+                    new SelectListItem{ Text="Don't track", Value="0"},  
+                    new SelectListItem{ Text="Track every 10s", Value="10000"},
+                    new SelectListItem{ Text="Track every 30s", Value="30000"},  
                 },
                 License = new ConfigurationModel.LicenseInformation
                 {

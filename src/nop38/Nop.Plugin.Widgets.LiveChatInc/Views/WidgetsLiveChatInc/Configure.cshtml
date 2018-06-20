@@ -143,27 +143,29 @@
 
     <div class="panel-group @Html.Raw(!string.IsNullOrEmpty(Model.License.Login)?"hidden":string.Empty)" id="before_login_bar">
         <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="col-md-4">
-                     <img class="livechat_logo2" alt="livechat logo" src="@Url.Content("~/Plugins/Widgets.LiveChatInc/Content/img/livechat-integrates-with-nopcommerce.png")"/>
+            <div class="panel-body" id="main-itegration-container">
+                <div id="login-container" class="col-md-6">
+                     <img class="livechat_logo2" alt="LiveChat logo" src="@Url.Content("~/Plugins/Widgets.LiveChatInc/Content/img/livechat-nopcommerce.png")"/>
                     <div id="login_form">
                         <div class="progress-button hidden">
                             @T("Plugins.Widgets.LiveChatInc.Saving")
                         </div>
-                        <div  style="width: 204px;margin: auto; overflow: visible;">
-                            <iframe id="login-with-livechat" src="https://addons.livechatinc.com/sign-in-with-livechat"> </iframe>
+                         <div>
+                            <iframe id="login-with-livechat" src="https://addons.livechatinc.com/sign-in-with-livechat" scrolling="no"> </iframe>
                         </div>
                     </div>
-                    <div class="or-delimiter">@T("Plugins.Widgets.LiveChatInc.Or")</div>
-                    <div id="livechat_link" style="font-size: 15px; margin-top:4px; text-align:center;">
+                    <div class="text-center padding-5">@T("Plugins.Widgets.LiveChatInc.Or")</div>
+                    <div id="livechat_link" class="text-center">
                         <a href="https://my.livechatinc.com/signup?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">@T("Plugins.Widgets.LiveChatInc.CreateAccount")</a>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div style="text-align: center;">
-                        <img class="livechat_screenshot" src="@Url.Content("~/Plugins/Widgets.LiveChatInc/Content/img/livechat-app.png")" alt="livechat app" />
-                        <p style="font-size:16px;">@T("Plugins.Widgets.LiveChatInc.CheckOutApps") <a href="https://www.livechatinc.com/applications/?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">@T("Plugins.Widgets.LiveChatInc.DesktopOrMobile")</a></p>
-                    </div>
+                 <div class="livechat_screenshot_container col-md-6">
+                   <img class="livechat_screenshot" src="@Url.Content("~/Plugins/Widgets.LiveChatInc/Content/img/livechat-app.png")" alt="livechat app" />
+                    <p class="text-center">
+                        <a href="https://my.livechatinc.com?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">
+                            @T("Plugins.Widgets.LiveChatInc.UseOurWebApp")
+                        </a> @T("Plugins.Widgets.LiveChatInc.OrCheckOutApps") <a href="https://www.livechatinc.com/applications/?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">@T("Plugins.Widgets.LiveChatInc.DesktopOrMobile")</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -176,65 +178,59 @@
 
     <div class="panel-group @Html.Raw(string.IsNullOrEmpty(Model.License.Login)?"hidden":string.Empty)" id="after_login_bar">
         <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <div style="font-size: medium; line-height: 1.6em;">
-                            <span style="text-align: right; font-size: medium; margin-top: 5px;">@T("Plugins.Widgets.LiveChatInc.CurrentlyUsedAccount") </span><span style="font-size: medium;"><strong> <span id="login_email">@Model.License.Login</span></strong> @T("Plugins.Widgets.LiveChatInc.LiveChatAccount")</span>
-                        </div>
+            <div class="panel-body" id="main-itegration-container">
+                <div id="controls-container" class="col-sm-6">
+                    <div class="form-group"  id="livechat-text-status-container">
+                        <span id="livechat-text-status">@T("Plugins.Widgets.LiveChatInc.CurrentlyUsedAccount") <span id="login_email">@Model.License.Login</span> @T("Plugins.Widgets.LiveChatInc.LiveChatAccount")</span>
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            @Html.OverrideStoreCheckboxFor(model => model.CartUpdateInterval_OverrideForStore, model => model.CartUpdateInterval, Model.ActiveStoreScopeConfiguration)
-                            @Html.NopLabelFor(model => model.CartUpdateInterval)
-                        </div>
-                        <div class="col-md-6">
-                            @Html.DropDownListFor(model => model.CartUpdateInterval, Model.TrackingCartOptions)
-                            @Html.ValidationMessageFor(model => model.CartUpdateInterval)
-                        </div>
+
+                    
+                    <div id="cart-interval-form" class="form-group">
+                        @Html.OverrideStoreCheckboxFor(model => model.CartUpdateInterval_OverrideForStore, model => model.CartUpdateInterval, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.CartUpdateInterval)
+                        @Html.DropDownListFor(model => model.CartUpdateInterval, Model.TrackingCartOptions)
+                        @Html.ValidationMessageFor(model => model.CartUpdateInterval)
                     </div>
+                
+
+                   
                     <div class="form-group">
-                        <div class="col-md-6">
-                            @Html.OverrideStoreCheckboxFor(model => model.HideOnMobile_OverrideForStore, model => model.HideOnMobile, Model.ActiveStoreScopeConfiguration)
-                            @Html.NopLabelFor(model => model.HideOnMobile)
-                        </div>
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.HideOnMobile)
-                            @Html.ValidationMessageFor(model => model.HideOnMobile)
-                        </div>
+                        @Html.OverrideStoreCheckboxFor(model => model.HideOnMobile_OverrideForStore, model => model.HideOnMobile, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.HideOnMobile)
+                        @Html.EditorFor(model => model.HideOnMobile)
+                        @Html.ValidationMessageFor(model => model.HideOnMobile)
                     </div>
+                
+                    
+                    
                     <div class="form-group">
-                        <div class="col-md-6">
-                            @Html.OverrideStoreCheckboxFor(model => model.DisableSoundsForVisitor_OverrideForStore, model => model.DisableSoundsForVisitor, Model.ActiveStoreScopeConfiguration)
-                            @Html.NopLabelFor(model => model.DisableSoundsForVisitor)
-                        </div>
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.DisableSoundsForVisitor)
-                            @Html.ValidationMessageFor(model => model.DisableSoundsForVisitor)
-                        </div>
+                        @Html.OverrideStoreCheckboxFor(model => model.DisableSoundsForVisitor_OverrideForStore, model => model.DisableSoundsForVisitor, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.DisableSoundsForVisitor)
+                        @Html.EditorFor(model => model.DisableSoundsForVisitor)
+                        @Html.ValidationMessageFor(model => model.DisableSoundsForVisitor)
                     </div>
-                    <div id="reset_settings" class="col-md-12">
+                    
+
+                    
+                    <div id="reset_settings" >
                         <div class="form-group">
-                            <div style="margin:15px 0;" class="col-xs-12">
-                                <label style="text-align:left; margin-top: 2px; font-weight:normal;font-size:11.9px;">
-                                    @T("Plugins.Widgets.LiveChatInc.ChangeAccount") <span>
-                                    <input type="submit" name="delete_settings" value="@T("Plugins.Widgets.LiveChatInc.ResetSettings")" />
-                                </span>
-                                </label>
-                            </div>
+                            <label id="reset_settings_label">
+                                @T("Plugins.Widgets.LiveChatInc.ChangeAccount") <span>
+                                <input type="submit" name="delete_settings" value="@T("Plugins.Widgets.LiveChatInc.ResetSettings")" />
+                            </span>
+                            </label>
                         </div>
                     </div>
+                    
                 </div>
-                <div class="col-sm-6">
+                <div class="livechat_screenshot_container col-sm-6">
                     <div class="form-wrapper">
-                        <div style="text-align: center;">
-                            <img class="livechat_screenshot" src="@Url.Content("~/Plugins/Widgets.LiveChatInc/Content/img/livechat-app.png")" alt="livechat app" />
-                            <p style="font-size:14px;">
-                                <a href="https://my.livechatinc.com?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">
-                                    @T("Plugins.Widgets.LiveChatInc.UseOurWebApp")
-                                </a> @T("Plugins.Widgets.LiveChatInc.OrCheckOutApps") <a href="https://www.livechatinc.com/applications/?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">@T("Plugins.Widgets.LiveChatInc.DesktopOrMobile")</a>
-                            </p>
-                        </div>
+                        <img class="livechat_screenshot second-screen" src="@Url.Content("~/Plugins/Widgets.LiveChatInc/Content/img/livechat-app.png")" alt="livechat app" />
+                        <p class="text-center">
+                            <a href="https://my.livechatinc.com?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">
+                                @T("Plugins.Widgets.LiveChatInc.UseOurWebApp")
+                            </a> @T("Plugins.Widgets.LiveChatInc.OrCheckOutApps") <a href="https://www.livechatinc.com/applications/?utm_source=nopcommerce.com&utm_medium=integration&utm_campaign=nopcommerce_integration" target="_blank">@T("Plugins.Widgets.LiveChatInc.DesktopOrMobile")</a>
+                        </p>
                     </div>
                 </div>
             </div>

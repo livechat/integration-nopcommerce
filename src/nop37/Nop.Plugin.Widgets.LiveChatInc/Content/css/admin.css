@@ -5,131 +5,12 @@
  *
  * This source file is subject to the Creative Commons License
  * This work is licensed under a Creative Commons Attribution 4.0 International License.
- *	@author	Michal Paszowski, LiveChat Inc. <support@livechatinc.com
+ *	@author LiveChat Inc. <support@livechatinc.com>
  *	@copyright 2017 LiveChat Inc.
  *	@license	 http://creativecommons.org/licenses/by/4.0/	 Creative Commons Attribution 4.0 International License. 
  */
 
-[data-tooltip] {
-    display: inline-block;
-    position: relative;
-    cursor: help;
-    padding: 0px;
-}
-    /* Tooltip styling */
-
-    [data-tooltip]:before {
-        content: attr(data-tooltip);
-        font-style: normal;
-        display: none;
-        position: absolute;
-        background: #eee;
-        color: rgba(0, 0, 0, 0.73);
-        padding: 7px;
-        font-size: 12px;
-        line-height: 1.2;
-        min-width: 120px;
-        text-align: center;
-        border-radius: 4px;
-    }
-/* Dynamic horizontal centering */
-
-[data-tooltip-position="top"]:before,
-[data-tooltip-position="bottom"]:before {
-    left: 50%;
-    -ms-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-}
-/* Dynamic vertical centering */
-
-[data-tooltip-position="right"]:before,
-[data-tooltip-position="left"]:before {
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-[data-tooltip-position="top"]:before {
-    bottom: 100%;
-    margin-bottom: 6px;
-}
-
-[data-tooltip-position="right"]:before {
-    left: 100%;
-    margin-left: 6px;
-}
-
-[data-tooltip-position="bottom"]:before {
-    top: 100%;
-    margin-top: 6px;
-}
-
-[data-tooltip-position="left"]:before {
-    right: 100%;
-    margin-right: 6px;
-}
-/* Tooltip arrow styling/placement */
-
-[data-tooltip]:after {
-    content: '';
-    display: none;
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-}
-/* Dynamic horizontal centering for the tooltip */
-
-[data-tooltip-position="top"]:after,
-[data-tooltip-position="bottom"]:after {
-    left: 50%;
-    margin-left: -6px;
-}
-/* Dynamic vertical centering for the tooltip */
-
-[data-tooltip-position="right"]:after,
-[data-tooltip-position="left"]:after {
-    top: 50%;
-    margin-top: -6px;
-}
-
-[data-tooltip-position="top"]:after {
-    bottom: 100%;
-    border-width: 6px 6px 0;
-    border-top-color: #eee;
-}
-
-[data-tooltip-position="right"]:after {
-    left: 100%;
-    border-width: 6px 6px 6px 0;
-    border-right-color: #eee;
-}
-
-[data-tooltip-position="bottom"]:after {
-    top: 100%;
-    border-width: 0 6px 6px;
-    border-bottom-color: #eee;
-}
-
-[data-tooltip-position="left"]:after {
-    right: 100%;
-    border-width: 6px 0 6px 6px;
-    border-left-color: #eee;
-}
-/* Show the tooltip when hovering */
-
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
-    display: block;
-    z-index: 50;
-}
-
-#reset_settings {
+ #reset_settings {
     border: none;
     font-size: 85%;
     color: #999;
@@ -137,9 +18,9 @@
     outline-style: none;
     margin-left: 0px;
     padding-left: 0px;
-}
-
-input[type=submit][name=delete_settings] {
+  }
+  
+  input[type=submit][name=delete_settings] {
     background-color: white;
     text-decoration: underline;
     border: none;
@@ -150,23 +31,23 @@ input[type=submit][name=delete_settings] {
     outline-style: none;
     margin-left: 0px;
     padding-left: 0px;
-    font-size:85%;
-}
-
-div#cart_radios .cart_switch {
+  }
+  
+  div#cart_radios .cart_switch {
     width: 216px;
-}
-
-
-iframe#login-with-livechat,
-#login_form {
-    margin: 0 auto;
-    width: 225px;
+  }
+  
+  
+  iframe#login-with-livechat,
+  #login_form {
+    margin-left: 1rem;
+    width: 204px;
     height: 43px;
     border: none;
-}
-
-.progress-button {
+    margin: 0 auto;
+  }
+  
+  .progress-button {
     width: 204px;
     height: 43px;
     border: none;
@@ -186,73 +67,136 @@ iframe#login-with-livechat,
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0 auto;
-}
-
-.or-delimiter {
-    font-size: 14px;
-    margin-top: 9px;
-    margin-bottom: 2px;
-}
-
-.livechat_table {
-    margin-top: 50px;
-}
-
-.livechat_logo2 {
+  }
+  
+  .livechat_logo2 {
     display:block;
-	width:100%;
-}
-
-.livechat_screenshot {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .livechat_screenshot {
     height: auto;
-    width: 100%;
-    max-width: 800px;
-    display:block;    
-}
-
-.fadein, .fadeout {
-    opacity: 0;
-    -moz-transition: opacity 0.4s ease-in-out;
-    -o-transition: opacity 0.4s ease-in-out;
-    -webkit-transition: opacity 0.4s ease-in-out;
-    transition: opacity 0.4s ease-in-out;
-}
-
-.fadein {
-    opacity: 1;
-}
-
-.all-in-one-place {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.contain {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-@media (min-width: 768px) {
-    .contain {
-        width: 750px;
+    max-width: 650px;
+    display: block;    
+    width:100%;
+  }
+  
+  #upper-panel {
+    margin-top: 60px;
+  }
+  
+  #livechat-text-status {
+    font-size: medium;
+    line-height: 1.6em;
+  }
+  
+  #reset_settings {
+    margin-top: 180px;
+  }
+  
+  #login_email{
+    font-weight: 700;
+  }
+  
+  #reset_settings_label {
+    text-align: left; 
+    font-weight:normal;
+    font-size:13.5px;
+  }
+  
+  #livechat-text-status-container { 
+    margin-top: 5.5vw;
+    margin-bottom: 30px;
+  }
+  
+  #controls-container {
+    padding-left: 8vw;
+  }
+  
+  #main-itegration-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .form-horizontal .label-wrapper {
+    float: left;
+    padding: 0; 
+  }
+  
+  .form-group select {
+    width: initial;
+    margin-left: 5px;
+    display: inline-block;
+  }
+  
+  input.check-box {
+    margin-left: 5px;
+  }
+  
+  .padding-0 {
+    padding: 0;
+  }
+  
+  .padding-5 {
+    padding: 5px;
+  }
+  
+  .second-screen {
+    margin-top: 2vw;
+  }
+  
+  
+  /* Responsive settings */
+  @media only screen and (max-width: 920px) {
+  
+    .livechat_screenshot_container {
+      display: none;
+    }  
+  
+  }
+  
+  @media only screen and (min-width: 921px) and (max-width: 1400px) {
+  
+    .second-screen {
+      margin-top: 5.5vw;
     }
-}
-
-@media (min-width: 992px) {
-    .contain {
-        width: 970px;
+  
+  }
+  
+  
+  .form-horizontal .label-wrapper .control-label {
+    vertical-align: bottom;
+    display: initial;
+  }
+  
+  
+  @media only screen and (max-width: 1600px){
+    .form-group input[type=checkbox]{
+      margin-top: 0px!important;
+      vertical-align: bottom;
+      display: table-cell;
+      position: static;
+      height: 24px;
     }
-}
-
-@media (min-width: 1200px) {
-    .contain {
-        width: 100%;
+  
+    .form-horizontal .label-wrapper i.fa:before  {
+      position: initial;
+      display: initial;
     }
-}
-
-.hidden {
-    display: none;
-}
+  
+    .form-horizontal .label-wrapper .ico-help {
+      display: table-cell!important;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px){
+    .form-group input[type=checkbox]{
+      height: 33px;
+    }
+  }
+  
+  
+  #livechat_link {
+      line-height: 8px;
+  }

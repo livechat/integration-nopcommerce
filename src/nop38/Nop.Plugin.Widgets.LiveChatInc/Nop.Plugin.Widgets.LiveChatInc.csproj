@@ -119,7 +119,7 @@
     <Content Include="Content\img\livechat-app.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\img\livechat-integrates-with-nopcommerce.png">
+    <Content Include="Content\img\livechat-nopcommerce.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\img\livechat-logo.png">

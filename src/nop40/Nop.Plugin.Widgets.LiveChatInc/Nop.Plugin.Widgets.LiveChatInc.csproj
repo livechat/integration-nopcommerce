@@ -57,7 +57,7 @@
     <None Update="Content\img\livechat-app.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Content\img\livechat-integrates-with-nopcommerce.png">
+    <None Update="Content\img\livechat-nopcommerce.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Content\img\livechat-logo.png">

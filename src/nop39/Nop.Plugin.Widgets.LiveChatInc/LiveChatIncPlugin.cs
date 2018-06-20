@@ -75,11 +75,11 @@ namespace Nop.Plugin.Widgets.LiveChatInc
             this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.License.Hint", "License");
             this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.Login", "Login");
             this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.Login.Hint", "Login");
-            this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.CartUpdateInterval", "Tracking cart interval");
+            this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.CartUpdateInterval", "Track your customers' carts");
             this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.CartUpdateInterval.Hint", "Cart's details will bevisible during a chat, in your LiveChat application.");
-            this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.HideOnMobile", "Hide chat window for the mobile version of your website");
+            this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.HideOnMobile", "Hide chat window on mobile");
             this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.HideOnMobile.Hint", "Hide chat window for the mobile version of your website");
-            this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.DisableSoundsForVisitor", "Disable chat window sounds for your customer");
+            this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.DisableSoundsForVisitor", "Disable chat window sounds");
             this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.DisableSoundsForVisitor.Hint", "Disable chat window sounds for your customer");
             this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.ChangeAccount", "If you would like to change LiveChat account you can");
             this.AddOrUpdatePluginLocaleResource("Plugins.Widgets.LiveChatInc.ResetSettings", "reset settings.");
