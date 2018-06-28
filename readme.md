@@ -26,3 +26,7 @@ See [official docs](http://docs.nopcommerce.com/display/en/Plugins).
 3. Build plugin project.
 
 See [official docs](http://docs.nopcommerce.com/display/en/Creating+a+nopCommerce+plugin)
+
+### Contact to author
+Email: dmitry.lipatov@gmail.com
+Upwork profile: https://www.upwork.com/freelancers/~016508f91e54deeafb
