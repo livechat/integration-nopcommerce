@@ -2,9 +2,9 @@
 
   <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Copyright>Copyright © LiveChat Inc</Copyright> 
-    <Company>LiveChat Inc</Company> 
-    <Authors>LiveChat Inc</Authors> 
+    <Copyright>Copyright © LiveChat Inc.</Copyright>
+    <Company>LiveChat Inc.</Company>
+    <Authors>LiveChat Inc.</Authors>
     <Version>1.01</Version>
     <Description>Integration plugin for LiveChat</Description> 
     <PackageLicenseUrl></PackageLicenseUrl> 
