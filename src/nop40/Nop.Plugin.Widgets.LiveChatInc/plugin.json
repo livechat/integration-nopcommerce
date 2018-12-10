@@ -2,9 +2,9 @@
   "Group": "Widgets",
   "FriendlyName": "LiveChat plugin",
   "SystemName": "Widgets.LiveChatInc",
-  "Version": "1.00",
+  "Version": "1.01",
   "SupportedVersions": [ "4.00" ],
-  "Author": "Live Chat Inc",
+  "Author": "LiveChat Inc.",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.Widgets.LiveChatInc.dll",
   "Description": "This plugin let's you add LiveChat to your website. Chat with your potential customers and track their shopping carts."

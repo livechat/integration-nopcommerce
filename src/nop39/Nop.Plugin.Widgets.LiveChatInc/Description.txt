@@ -1,7 +1,7 @@
 ﻿Group: Widgets
 FriendlyName: LiveChat plugin
 SystemName: Widgets.LiveChatInc
-Version: 1.00
+Version: 1.01
 SupportedVersions: 3.90
 Author: Live Chat Inc.
 DisplayOrder: 1
