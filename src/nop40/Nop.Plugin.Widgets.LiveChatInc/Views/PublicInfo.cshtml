@@ -3,7 +3,6 @@
     var jsonConfig = @"{" +
 "license:'" + Model.License + "'" +
 ",hideOnMobile:" + (Model.HideOnMobile ? "true" : "false") +
-",disableSoundsForVisitor:" + (Model.DisableSoundsForVisitor ? "true" : "false") +
 ",cartUpdateInterval:" + Model.CartUpdateInterval +
 ",isRegisteredCustomer:" + (Model.IsRegisteredCustomer ? "true" : "false") +
 ",customerName:'" + Model.CustomerName + "'" +
@@ -48,13 +47,6 @@
             }
 
             window.LC_API = window.LC_API || {};
-           
-
-            window.LC_API.on_before_load = function () {
-                if (jsonConfig.disableSoundsForVisitor) {
-                    window.LC_API.disable_sounds();
-                }
-            };
 
             if (jsonConfig.cartUpdateInterval > 0) {
                 window.setInterval(function () {

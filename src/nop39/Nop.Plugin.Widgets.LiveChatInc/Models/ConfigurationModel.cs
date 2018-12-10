@@ -15,9 +15,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Models
         [NopResourceDisplayName("Plugins.Widgets.LiveChatInc.HideOnMobile")]
         public bool HideOnMobile { get; set; }
         public bool HideOnMobile_OverrideForStore { get; set; }
-        [NopResourceDisplayName("Plugins.Widgets.LiveChatInc.DisableSoundsForVisitor")]
-        public bool DisableSoundsForVisitor { get; set; }
-        public bool DisableSoundsForVisitor_OverrideForStore { get; set; }
         public LicenseInformation License { get; set; }
         public List<SelectListItem> TrackingCartOptions { get; internal set; }
 

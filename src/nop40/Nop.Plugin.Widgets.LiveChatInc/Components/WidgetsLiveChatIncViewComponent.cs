@@ -46,7 +46,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Components
             var model = new PublicInfoModel
             {
                 CartUpdateInterval = settings.CartUpdateInterval,
-                DisableSoundsForVisitor = settings.DisableSoundsForVisitor,
                 HideOnMobile = settings.HideOnMobile,
                 License = settings.License,
                 IsRegisteredCustomer = _workContext.CurrentCustomer.IsInCustomerRole(SystemCustomerRoleNames.Registered),

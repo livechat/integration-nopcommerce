@@ -104,7 +104,6 @@
             $('#@Html.IdFor(model => model.License.License)').val('');
             $('#@Html.IdFor(model => model.CartUpdateInterval)').val("0");
             $('#@Html.IdFor(model => model.HideOnMobile)').prop("checked",false);
-            $('#@Html.IdFor(model => model.DisableSoundsForVisitor)').prop("checked", false);
 
             var formEl = $(this).parents('form');
             $.ajax({
@@ -186,13 +185,6 @@
                         <nop-label asp-for="HideOnMobile" />
                         <nop-editor asp-for="HideOnMobile" />
                         <span asp-validation-for="HideOnMobile"></span>
-                    </div>
-                       
-                    <div class="form-group">
-                        <nop-override-store-checkbox asp-for="DisableSoundsForVisitor_OverrideForStore" asp-input="DisableSoundsForVisitor" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
-                        <nop-label asp-for="DisableSoundsForVisitor" />
-                        <nop-editor asp-for="DisableSoundsForVisitor" />
-                        <span asp-validation-for="DisableSoundsForVisitor"></span>
                     </div>
                     
                     

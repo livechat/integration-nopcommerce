@@ -70,7 +70,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
             {
                 ActiveStoreScopeConfiguration = storeScope,
                 CartUpdateInterval = settings.CartUpdateInterval,
-                DisableSoundsForVisitor = settings.DisableSoundsForVisitor,
                 HideOnMobile = settings.HideOnMobile,
                 TrackingCartOptions = new List<SelectListItem>
                 {
@@ -89,7 +88,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
             if (storeScope > 0)
             {
                 model.CartUpdateInterval_OverrideForStore = _settingService.SettingExists(settings, x => x.CartUpdateInterval, storeScope);
-                model.DisableSoundsForVisitor_OverrideForStore = _settingService.SettingExists(settings, x => x.DisableSoundsForVisitor, storeScope);
                 model.HideOnMobile_OverrideForStore = _settingService.SettingExists(settings, x => x.HideOnMobile, storeScope);
                 model.License.Login_OverrideForStore = _settingService.SettingExists(settings, x => x.Login, storeScope);
                 model.License.License_OverrideForStore = _settingService.SettingExists(settings, x => x.License, storeScope);
@@ -110,7 +108,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
 
             settings.HideOnMobile = model.HideOnMobile;
             settings.CartUpdateInterval = model.CartUpdateInterval;
-            settings.DisableSoundsForVisitor = model.DisableSoundsForVisitor;
 
             if (model.HideOnMobile_OverrideForStore || storeScope == 0)
                 _settingService.SaveSetting(settings, x => x.HideOnMobile, storeScope, false);
@@ -121,11 +118,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
                 _settingService.SaveSetting(settings, x => x.CartUpdateInterval, storeScope, false);
             else if (storeScope > 0)
                 _settingService.DeleteSetting(settings, x => x.CartUpdateInterval, storeScope);
-
-            if (model.DisableSoundsForVisitor_OverrideForStore || storeScope == 0)
-                _settingService.SaveSetting(settings, x => x.DisableSoundsForVisitor, storeScope, false);
-            else if (storeScope > 0)
-                _settingService.DeleteSetting(settings, x => x.DisableSoundsForVisitor, storeScope);
 
             //now clear settings cache
             _settingService.ClearCache();
@@ -246,7 +238,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
             var model = new PublicInfoModel
             {
                 CartUpdateInterval = settings.CartUpdateInterval,
-                DisableSoundsForVisitor = settings.DisableSoundsForVisitor,
                 HideOnMobile = settings.HideOnMobile,
                 License = settings.License,
                 IsRegisteredCustomer = _workContext.CurrentCustomer.IsInCustomerRole(SystemCustomerRoleNames.Registered),
