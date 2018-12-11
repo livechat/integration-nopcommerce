@@ -1,6 +1,4 @@
-﻿using System.Web.Mvc;
-using Nop.Web.Framework;
-using Nop.Web.Framework.Mvc;
+﻿using Nop.Web.Framework.Models;
 
 namespace Nop.Plugin.Widgets.LiveChatInc.Models
 {

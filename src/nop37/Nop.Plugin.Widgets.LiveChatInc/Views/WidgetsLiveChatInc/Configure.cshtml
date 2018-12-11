@@ -106,7 +106,6 @@
             $('#@Html.FieldIdFor(model => model.License.License)').val('');
             $('#@Html.FieldIdFor(model => model.CartUpdateInterval)').val("0");
             $('#@Html.FieldIdFor(model => model.HideOnMobile)').prop("checked",false);
-            $('#@Html.FieldIdFor(model => model.DisableSoundsForVisitor)').prop("checked", false);
 
             var formEl = $(this).parents('form');
             $.ajax({
@@ -203,16 +202,6 @@
                         <td class="adminData">
                             @Html.EditorFor(model => model.HideOnMobile)
                             @Html.ValidationMessageFor(model => model.HideOnMobile)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="adminTitle">
-                            @Html.OverrideStoreCheckboxFor(model => model.DisableSoundsForVisitor_OverrideForStore, model => model.DisableSoundsForVisitor, Model.ActiveStoreScopeConfiguration)
-                            @Html.NopLabelFor(model => model.DisableSoundsForVisitor):
-                        </td>
-                        <td class="adminData">
-                            @Html.EditorFor(model => model.DisableSoundsForVisitor)
-                            @Html.ValidationMessageFor(model => model.DisableSoundsForVisitor)
                         </td>
                     </tr>
                     <tr>

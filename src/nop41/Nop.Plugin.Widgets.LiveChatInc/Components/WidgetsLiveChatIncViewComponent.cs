@@ -21,19 +21,22 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Components
         private readonly ISettingService _settingService;
         private readonly IOrderService _orderService;
         private readonly ILogger _logger;
+        private readonly ICustomerService _customerService;
 
         public WidgetsLiveChatIncViewComponent(
             IWorkContext workContext,
             IStoreContext storeContext,
             ISettingService settingService,
             IOrderService orderService,
-            ILogger logger)
+            ILogger logger,
+            ICustomerService customerService)
         {
             this._workContext = workContext;
             this._storeContext = storeContext;
             this._settingService = settingService;
             this._orderService = orderService;
             this._logger = logger;
+            this._customerService = customerService;
         }
 
         public IViewComponentResult Invoke(string widgetZone, object additionalData)
@@ -48,8 +51,8 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Components
                 CartUpdateInterval = settings.CartUpdateInterval,
                 HideOnMobile = settings.HideOnMobile,
                 License = settings.License,
-                IsRegisteredCustomer = _workContext.CurrentCustomer.IsInCustomerRole(SystemCustomerRoleNames.Registered),
-                CustomerName = _workContext.CurrentCustomer.GetFullName(),
+                IsRegisteredCustomer = _workContext.CurrentCustomer.IsInCustomerRole(NopCustomerDefaults.RegisteredRoleName),
+                CustomerName = _customerService.GetCustomerFullName(_workContext.CurrentCustomer),
                 CustomerEmail = _workContext.CurrentCustomer.Email
             };
             return View("~/Plugins/Widgets.LiveChatInc/Views/PublicInfo.cshtml", model);

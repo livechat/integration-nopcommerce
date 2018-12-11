@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Nop.Core;
-using Nop.Core.Domain.Customers;
-using Nop.Core.Domain.Discounts;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Infrastructure;
 using Nop.Plugin.Widgets.LiveChatInc.Models;
 using Nop.Services.Catalog;
 using Nop.Services.Configuration;
-using Nop.Services.Customers;
 using Nop.Services.Directory;
 using Nop.Services.Discounts;
 using Nop.Services.Localization;
-using Nop.Services.Logging;
 using Nop.Services.Orders;
+using Nop.Services.Security;
 using Nop.Services.Stores;
 using Nop.Services.Tax;
+using Nop.Web.Framework;
 using Nop.Web.Framework.Controllers;
-
+using Nop.Web.Framework.Mvc.Filters;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
 {
@@ -33,38 +29,41 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
         private readonly IStoreService _storeService;
         private readonly ISettingService _settingService;
         private readonly IOrderService _orderService;
-        private readonly ILogger _logger;
         private readonly ICategoryService _categoryService;
         private readonly IProductAttributeParser _productAttributeParser;
         private readonly ILocalizationService _localizationService;
+        private readonly IPermissionService _permissionService;
 
         public WidgetsLiveChatIncController(IWorkContext workContext,
-            IStoreContext storeContext,
-            IStoreService storeService,
-            ISettingService settingService,
-            IOrderService orderService,
-            ILogger logger,
-            ICategoryService categoryService,
-            IProductAttributeParser productAttributeParser,
-            ILocalizationService localizationService)
+             IStoreContext storeContext,
+             IStoreService storeService,
+             ISettingService settingService,
+             IOrderService orderService,
+             ICategoryService categoryService,
+             IProductAttributeParser productAttributeParser,
+             ILocalizationService localizationService,
+             IPermissionService permissionService)
         {
             this._workContext = workContext;
             this._storeContext = storeContext;
             this._storeService = storeService;
             this._settingService = settingService;
             this._orderService = orderService;
-            this._logger = logger;
             this._categoryService = categoryService;
             this._productAttributeParser = productAttributeParser;
             this._localizationService = localizationService;
+            this._permissionService = permissionService;
         }
 
-        [AdminAuthorize]
-        [ChildActionOnly]
-        public ActionResult Configure()
+        [Area(AreaNames.Admin)]
+        [AuthorizeAdmin]
+        public IActionResult Configure()
         {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManageWidgets))
+                return AccessDeniedView();
+
             //load settings for a chosen store scope
-            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
+            var storeScope = _storeContext.ActiveStoreScopeConfiguration;
             var settings = _settingService.LoadSetting<LiveChatIncSettings>(storeScope);
             var model = new ConfigurationModel
             {
@@ -73,9 +72,9 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
                 HideOnMobile = settings.HideOnMobile,
                 TrackingCartOptions = new List<SelectListItem>
                 {
-                    new SelectListItem{ Text="Don't track", Value="0"},
+                    new SelectListItem{ Text="Don't track", Value="0"},  
                     new SelectListItem{ Text="Track every 10s", Value="10000"},
-                    new SelectListItem{ Text="Track every 30s", Value="30000"},
+                    new SelectListItem{ Text="Track every 30s", Value="30000"},  
                 },
                 License = new ConfigurationModel.LicenseInformation
                 {
@@ -94,16 +93,19 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
                 model.License.Version_OverrideForStore = _settingService.SettingExists(settings, x => x.Version, storeScope);
             }
 
-            return View("~/Plugins/Widgets.LiveChatInc/Views/WidgetsLiveChatInc/Configure.cshtml", model);
+            return View("~/Plugins/Widgets.LiveChatInc/Views/Configure.cshtml", model);
         }
 
         [HttpPost]
-        [AdminAuthorize]
-        [ChildActionOnly]
-        public ActionResult Configure(ConfigurationModel model)
+        [AuthorizeAdmin]
+        [Area(AreaNames.Admin)]
+        public IActionResult Configure(ConfigurationModel model)
         {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManageWidgets))
+                return AccessDeniedView();
+
             //load settings for a chosen store scope
-            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
+            var storeScope = _storeContext.ActiveStoreScopeConfiguration;
             var settings = _settingService.LoadSetting<LiveChatIncSettings>(storeScope);
 
             settings.HideOnMobile = model.HideOnMobile;
@@ -128,13 +130,14 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [AuthorizeAdmin]
+        [Area(AreaNames.Admin)]
         public ActionResult SetLicenseInformation(ConfigurationModel model)
         {
             var license = model.License;
 
             //load settings for a chosen store scope
-            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
+            var storeScope = _storeContext.ActiveStoreScopeConfiguration;
             var settings = _settingService.LoadSetting<LiveChatIncSettings>(storeScope);
             settings.Login = license.Login;
             settings.License = license.License;
@@ -159,7 +162,8 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [AuthorizeAdmin]
+        [Area(AreaNames.Admin)]
         public ActionResult ResetSettings()
         {
             //load settings for a chosen store scope
@@ -223,29 +227,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Controllers
             };
 
             return Json(data);
-        }
-
-
-        [ChildActionOnly]
-        public ActionResult PublicInfo(string widgetZone, object additionalData = null)
-        {
-            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
-            var settings = _settingService.LoadSetting<LiveChatIncSettings>(storeScope);
-
-            if (string.IsNullOrEmpty(settings.License))
-                return Content(string.Empty);
-
-            var model = new PublicInfoModel
-            {
-                CartUpdateInterval = settings.CartUpdateInterval,
-                HideOnMobile = settings.HideOnMobile,
-                License = settings.License,
-                IsRegisteredCustomer = _workContext.CurrentCustomer.IsInCustomerRole(SystemCustomerRoleNames.Registered),
-                CustomerName = _workContext.CurrentCustomer.GetFullName(),
-                CustomerEmail = _workContext.CurrentCustomer.Email
-            };
-
-            return View("~/Plugins/Widgets.LiveChatInc/Views/WidgetsLiveChatInc/PublicInfo.cshtml", model);
         }
     }
 }

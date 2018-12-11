@@ -1,8 +1,8 @@
 ﻿Group: Widgets
-FriendlyName: Live Chat Inc plugin
+FriendlyName: LiveChat Inc. plugin
 SystemName: Widgets.LiveChatInc
-Version: 1.00
+Version: 1.01
 SupportedVersions: 3.70
-Author: Live Chat Inc.
+Author: LiveChat Inc.
 DisplayOrder: 1
 FileName: Nop.Plugin.Widgets.LiveChatInc.dll

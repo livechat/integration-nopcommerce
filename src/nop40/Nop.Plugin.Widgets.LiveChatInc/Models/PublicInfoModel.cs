@@ -6,7 +6,6 @@ namespace Nop.Plugin.Widgets.LiveChatInc.Models
     {
         public int CartUpdateInterval { get; set; }
         public bool HideOnMobile { get; set; }
-        public bool DisableSoundsForVisitor { get; set; }
         public string License { get; set; }
         public bool IsRegisteredCustomer { get; set; }
         public string CustomerEmail { get; set; }

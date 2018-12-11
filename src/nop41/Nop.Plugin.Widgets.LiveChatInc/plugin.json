@@ -3,7 +3,7 @@
   "FriendlyName": "LiveChat plugin",
   "SystemName": "Widgets.LiveChatInc",
   "Version": "1.01",
-  "SupportedVersions": [ "4.00" ],
+  "SupportedVersions": [ "4.10" ],
   "Author": "LiveChat Inc.",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.Widgets.LiveChatInc.dll",
